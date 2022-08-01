@@ -27,7 +27,10 @@ fn main() { //define the function main
         match guess.cmp(&secret_number) { //compare the two numbers
             Ordering::Less => println!("Too small!"), //if guess is too big print that
             Ordering::Greater => println!("Too big!"), //if guess is too small print that
-            Ordering::Equal => println!("You win!"), //if same as guess print that
+            Ordering::Equal => { //if equal
+                println!("You win!"); //print you win
+                break; //stop
+            }, //end ordering
         } //end match
     } //end loop
 } //end main
