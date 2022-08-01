@@ -20,7 +20,10 @@ fn main() { //define the function main
             .read_line(&mut guess)          //store in guess variable
             .expect("Failed to read line"); //send error message
 
-        let guess: u32 = guess.trim().parse().expect("Please type a number!"); //convert string to int
+        let guess: u32 = match guess.trim().parse() { //change guess to int
+            Ok(num) => num, //if number then ok
+            Err(_) => continue, //if not start loop again
+        }; //end guess
 
         println!("You guessed: {guess}"); //prints user guess
 
