@@ -1,8 +1,13 @@
 use std::io; //import io from standard library
 use std::io::Write; //import print stuff
+use rand::Rng; //import random
 
 fn main() { //define the function main
     println!("Guess the number!"); //print
+
+    let secret_number = rand::thread_rng().gen_range(1..=100); //generate random number from 1 to 100
+
+    println!("The secret number is: {secret_number}"); //print secret number
 
     print!("Please input your guess. "); //another print
     io::stdout().flush().expect("Failed to flush"); //dont add new line
