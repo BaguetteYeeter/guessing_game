@@ -8,7 +8,7 @@ fn main() { //define the function main
 
     let secret_number = rand::thread_rng().gen_range(1..=100); //generate random number from 1 to 100
 
-    println!("The secret number is: {secret_number}"); //print secret number
+    //println!("The secret number is: {secret_number}"); //print secret number
 
     loop { //make a new while true loop
         print!("Please input your guess. "); //another print
