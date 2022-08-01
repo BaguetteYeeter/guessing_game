@@ -1,6 +1,7 @@
 use std::io; //import io from standard library
 use std::io::Write; //import print stuff
 use rand::Rng; //import random
+use std::cmp::Ordering; //import ordering things
 
 fn main() { //define the function main
     println!("Guess the number!"); //print
@@ -18,5 +19,13 @@ fn main() { //define the function main
         .read_line(&mut guess)          //store in guess variable
         .expect("Failed to read line"); //send error message
 
+    let guess: u32 = guess.trim().parse().expect("Please type a number!"); //convert string to int
+
     println!("You guessed: {guess}"); //prints user guess
-}
+
+    match guess.cmp(&secret_number) { //compare the two numbers
+        Ordering::Less => println!("Too small!"), //if guess is too big print that
+        Ordering::Greater => println!("Too big!"), //if guess is too small print that
+        Ordering::Equal => println!("You win!"), //if same as guess print that
+    } //end match
+} //end main
